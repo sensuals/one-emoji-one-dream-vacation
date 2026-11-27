@@ -1,26 +1,33 @@
 // Entry program for make.fun's u-grand-elephant-19-one-emoji-one-dream-vacation-62879a35
 // ("One Emoji, One Dream Vacation").
 //
-// The entry is exactly one emoji: Mount Fuji, 🗻.
+// The entry is exactly one emoji: a national park, 🏞️.
 //
 // Why this one, against the judge's brief (most important first):
-// 1. It is exactly one emoji and it plainly names a dream vacation: a
-//    mountain is one of the brief's own examples (beach, mountain, plane,
-//    hammock, faraway place), and Fuji is a real place people dream of
-//    flying to, not a generic holiday.
-// 2. It is vivid at a glance, like a postcard: a snow-capped peak under
-//    the sky, no words needed to see the place.
-// 3. It is personal and specific rather than generic: one particular
-//    mountain, one particular trip to Japan, not "any beach anywhere".
+// 1. It plainly names a dream vacation: a national park, mountains, a
+//    river and forest in one frame, a real place people dream of flying
+//    to, not a generic holiday.
+// 2. It is vivid at a glance, like a postcard: a whole landscape, the
+//    stranger sees the place before reading a word.
+// 3. It is specific rather than generic: a park trip, hiking and lakes
+//    in the Banff or Yosemite mould, one particular kind of dream rather
+//    than any beach anywhere.
 // 4. It carries a spark of surprise: the field is flooded with beaches,
-//    islands and sunsets, and Fuji is a fresh pick among them.
-// 5. It reads instantly across cultures and screens: the snow-capped
-//    mountain is clear at small size and needs no explaining.
+//    islands, sunsets and Mount Fuji (hundreds of entries each), while
+//    no entry in the live list of 3,756 titles mentions a national park,
+//    a landscape or a valley at all, so this is a fresh pick.
+// 5. It reads instantly across cultures and screens: a clear landscape,
+//    no explaining needed.
 //
 // It is also deliberately not one of the most obvious picks (beach,
-// island, sunset, plane, palm tree): those are the likeliest house fixed
-// texts, and an entry byte-identical to a fixed text never enters the
-// playoff and takes no prize.
+// island, sunset, plane, palm tree, Mount Fuji): those are the likeliest
+// house fixed texts, and an entry byte-identical to a fixed text never
+// enters the playoff and takes no prize. And a late entrant cannot win
+// with the crowd's favourites anyway: byte-identical entries share one
+// rate and the earliest receipt places above its copies, so a win by
+// Mount Fuji or a desert island would pay its earliest copy from 24
+// November, not a copy submitted on 27 November. A strong but unpicked
+// emoji is the only way a late entry can take first place.
 //
 // Run it the way the grader does:
 //   mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
@@ -33,8 +40,9 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 
 const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
-// U+1F5FB MOUNT FUJI: one character, four bytes of UTF-8.
-const EMOJI = '🗻';
+// U+1F3DE NATIONAL PARK, written as an escape so no variation
+// selector can sneak in: exactly one character, four bytes of UTF-8.
+const EMOJI = '\u{1F3DE}';
 
 mkdirSync(OUTPUT_DIR, { recursive: true });
 writeFileSync(`${OUTPUT_DIR}/entry.txt`, EMOJI, 'utf8');
